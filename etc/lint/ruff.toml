@@ -9,19 +9,12 @@ target-version = "py311"
 
 [lint]
 ignore = [
-  "COM812",  # Trailing comma missing
-  "EM101",  # Exception must not use a string literal, assign to variable first
+  "EM102",  # Exception must not use an f-string literal, assign to variable first
   "FBT001",  # Boolean-typed positional argument in function definition
-  "FBT002",  # Boolean default positional argument in function definition
-  "PLR2004",  # Magic value used in comparison, consider replacing `201` with a constant variable"
+  "G004",  # Logging statement uses f-string
   "PLR2044",  # Line with empty comment
-  "RUF100",  # Unused `noqa` directive (non-enabled: `FURB156`)
-  "TRY003",  # Avoid specifying long messages outside the exception class
-  "TRY400",  # Use `logging.exception` instead of `logging.error`
-  "RET503",  # Missing explicit `return` at the end of function able to return non-`None` value
-  "G004"  # Logging statement uses f-string
+  "RET503"  # Missing explicit `return` at the end of function able to return non-`None` value
 ]
-# ignore_missing_imports = true
 select = [
   "A",
   "B",
@@ -100,7 +93,7 @@ parametrize-values-type = "tuple"
 
 [lint.flake8-quotes]
 docstring-quotes = "double"
-inline-quotes = "single"
+inline-quotes = "double"
 multiline-quotes = "double"
 
 [lint.isort]
@@ -117,4 +110,4 @@ section-order = [
 split-on-trailing-comma = true
 
 [lint.mccabe]
-max-complexity = 20
+max-complexity = 12
